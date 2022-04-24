@@ -8,7 +8,7 @@ This project is currently in development.
 
 1. Provide an initial design of the layout
 2. Connect and retrieve data from the backend
-3. User can choose to connect the Garmin watch to the dashboard through Garmin Connect. (complete the first element of the user story)
+3. User can choose to connect the Garmin watch to the dashboard through Garmin Connect.
 
 
 ## Package introduction
