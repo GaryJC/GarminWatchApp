@@ -10,31 +10,64 @@ This project is currently in development.
 3. user can view all his activity data, under viewing of the list.
 4. completely fix the bug of the old version
 
-## Components diagram
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/componentPicture/component%20Diagram.png)
+## Project structure
+The backend built with Springboot framework, it including following function
+Garmin Part
+1) synchronic data from garmin connect
+2) store in mongodb database
+
+Web part
+1) Connect user with garmin connect
+2) Store user info in mongodb database
+3) Giving user visulization on his exercise history
+
+### Components diagram:
+
+![image](https://user-images.githubusercontent.com/39297807/164958763-2b45cae0-48d6-46a3-aca5-5c40e5279cfc.png)
+
+### Spring structure:
+
+![image](https://user-images.githubusercontent.com/39297807/164958759-e5c0b907-d2b2-470f-b15f-60d63b4ca117.png)
 
 
-## The project structure
- The project adopts the development mode of sub-modules according to functions, and the structure is as follows
+The project adopts the development mode of sub-modules according to functions, and the structure is as follows
+*	coachingmateanalytics.coachingmate.controller: Front controller layer
+*	coachingmateanalytics.coachingmate.entity: Data entity class
+*	coachingmateanalytics.coachingmate.dao : Data interface access layer
+*	coachingmateanalytics.coachingmate.service : Data service interface layer
+*	coachingmateanalytics.coachingmate.service.serviceImpl : Data service interface implementation layer
+*	coachingmateanalytics.coachingmate.utils : Tool library
+*	coachingmateanalytics.coachingmate.intercepter : used to set the response header for all request
+*	resources/application.yml : Project profile resources/static/ : Static resource directory
+
+## Project Database structure
+
+All project data store in cloud mogodb(please adjust to your own mogodb cloud account), which has multiple collections:
+User profile aspect(<type> org.bson.Document)
+*	requestToken: entity/RequestToken
+*	user: entity/RequestToken
+
+ User data aspect (<type> org.bson.Document)
+*	epho: controller/GarminPushController/saveEpoch
+*	activity: controller/GarminPushController/saveActivity
+*	activityDetails: controller/GarminPushController/ saveActivityDetails
  
-- coachingmateanalytics.coachingmate.controller: Front controller layer
-- coachingmateanalytics.coachingmate.entity: Data entity class
-- coachingmateanalytics.coachingmate.dao : Data interface access layer
-- coachingmateanalytics.coachingmate.service : Data service interface layer
-- coachingmateanalytics.coachingmate.service.serviceImpl : Data service interface implementation layer
-- coachingmateanalytics.coachingmate.utils : Tool library
-- coachingmateanalytics.coachingmate.intercepter : used to set the response header for all request
+![image](https://user-images.githubusercontent.com/39297807/164958386-b93b837a-8c71-4c09-830e-bfa54a089840.png)
 
-- resources/application.yml : Project profile
-resources/static/ : Static resource directory
+##  Development Environment Instructions
+#### 1. Install IDEA from this [location](https://www.jetbrains.com/idea/).
 
-## Description of the database structure 
+#### 2. Install maven from this [location](https://maven.apache.org/download.cgi).
+Reference blog: 
+https://toolsqa.com/maven/how-to-install-maven-on-windows/
 
-Mongodb has one database (named coachingDB) which has three collections, which are respectively
-- requestToken : Use to store the [RequestToken entity class](https://github.com/chenyuguo/coachingmate/blob/master/src/main/java/coachingmateanalytics/coachingmate/entity/RequestToken.java)
-- user : Used to store the [Userpartner entity class](https://github.com/chenyuguo/coachingmate/blob/master/src/main/java/coachingmateanalytics/coachingmate/entity/UserPartner.java)
-- activity : Used to store the [Activity entity class](https://github.com/chenyuguo/coachingmate/blob/master/src/main/java/coachingmateanalytics/coachingmate/entity/Activity.java)
+#### 3. Install Mongodb from this [location](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/).
+Reference blog: 
+https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514
 
+#### 4. Install git version control in IDEA
+Reference video:
+https://www.youtube.com/watch?v=mM_drNdss4c
 
 ## Installation and Setup Instructions
 
@@ -114,32 +147,63 @@ To Start Server:
 
 To login App:
 
-`localhost:8080/login?username={username}&password={password}`  
-
-
+`localhost:8080/login?username={username}&password={password}` 
+ 
 ## Deployment guidelines
-There are serveal steps we need to do to run our app on heroku
-### 1. create a new application on heroku
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/1newApp.jpg)
+#### There are three places’s variable should be replaced by yours
+* MongoDB
+* Garmin app api
+* Garmin app api portal
 
-### 2. text our app name and region
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/2newCreate.jpg)
+### MongoDB: 
+#### Using gmail account create a free cloud space, and Replace the url.
+#### 1. 
+![image](https://user-images.githubusercontent.com/39297807/164959299-042b1a32-c7fd-452c-803f-911607080778.png)
+#### 2.
+![image](https://user-images.githubusercontent.com/39297807/164959301-a12caad6-3491-4f12-954b-8bea3974c88d.png)
+#### 3.
+![image](https://user-images.githubusercontent.com/39297807/164959310-044be9ee-1816-4938-b713-91a1fc460d48.png)
+#### 4.
+![image](https://user-images.githubusercontent.com/39297807/164959315-0a5196cb-a202-4085-92e2-b526efddeeb0.png)
+#### 5.
+![image](https://user-images.githubusercontent.com/39297807/164959318-7d4c58ae-b98d-498b-b8b7-54b6753c3bd3.png)
+#### 6.Replace the url with your copy one
+ ![image](https://user-images.githubusercontent.com/39297807/164959383-e1cbe0b9-c044-4bb4-8bd1-6631f92a5082.png)
 
-### 3. fork this repository to your own repository
+ 
+### Garmin app api: 
+#### 1. You need to create a new app in the developerportal of garmin.
+https://developerportal.garmin.com/
+ ![image](https://user-images.githubusercontent.com/39297807/164959564-9fec2399-93c9-4da5-94a6-650567b3544c.png)
+#### 2. Then you need to write down the consumerkey and consumerSececret
+![image](https://user-images.githubusercontent.com/39297807/164959578-1aa82c99-1254-4b25-9fc1-cbf4da237120.png)
+#### After that process, you own api key and secret. That info should be included in your apps, replaced those vars with yours.
+ ![image](https://user-images.githubusercontent.com/39297807/164959592-cc818b90-1212-4c2c-9308-b6b2de7aae2b.png)
 
-### 4. Select Github and find this forked project in your own repository
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/3connect.jpg)
+ 
+### Garmin app api portal:
+#### You need to upload your project to github, then connect the github repository with heuroku.
+#### 1. create a new application on heroku
+![image](https://user-images.githubusercontent.com/39297807/164959624-0c1bc5a6-0187-4692-9065-a8385bd49d24.png)
+#### 2. text our app name and region
+ ![image](https://user-images.githubusercontent.com/39297807/164959631-bc20db40-7ecb-44d4-9d5b-ab520f979391.png)
+#### 3. fork this repository to your own repository
+#### 4. Select Github and find this forked project in your own repository
+![image](https://user-images.githubusercontent.com/39297807/164959637-f8e35982-0d85-4b2c-a402-9351f27396d5.png)
+#### 5. connect successfully
+ ![image](https://user-images.githubusercontent.com/39297807/164959642-430d4d6b-a4d5-42ff-834b-25ff32e888b7.png)
+#### 6. find our app and click the Open app button
+ ![image](https://user-images.githubusercontent.com/39297807/164959652-10a31d28-2b9b-4d7c-8866-232574dd7710.png)
+#### 7. find our URL in the build log
+ ![image](https://user-images.githubusercontent.com/39297807/164959657-ffad70d1-88fb-4c98-83bd-a2f0fccb0a7a.png)
+#### Finally, replace the garmin developer url as the herokuapp + path
+![image](https://user-images.githubusercontent.com/39297807/164959664-14cd3a3c-4799-413a-a0c0-24d5430ae3ae.png)
+![image](https://user-images.githubusercontent.com/39297807/164959668-c42c70c3-e849-4057-981f-31b6b92259f5.png)
+![image](https://user-images.githubusercontent.com/39297807/164959671-716a3b04-a7f2-4452-b320-8d9ba93fdd44.png)
+![image](https://user-images.githubusercontent.com/39297807/164959673-179c7d58-74d8-4220-a8e0-ef26efdd52b9.png)
+![image](https://user-images.githubusercontent.com/39297807/164959674-d7603000-eb00-41e3-906e-923eb5ea4045.png)
 
-### 5. connect successfully
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/4success.jpg)
 
-### 6. find our app and click the Openapp button
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/5open.jpg)
-
-### 7. find our URL in the build log
-![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/runonserver/picture/pic/6.jpg)
-
-URL: <https://coachingmate2020.herokuapp.com/>
 
 
 
