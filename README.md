@@ -1,13 +1,23 @@
 ## Project Name & Pitch
 Team-GA-Redback
 
-This is a software project of subject COMP90082 at The University of Melbourne. Through this project, a user with a Garmin watch can receive a workout via the CoachingMate platform. When they complete their workout, they are able to send the data from the watch to the Dashboard for viewing by themselves and their coach. In this project, the final product of our team is to achieve transferring data from Garmin watches to the CoachingMate backend by using the Garmin APIs, using the Garmin developer resources.
+This is a software project of subject COMP90082 at The University of Melbourne. Through this project, a user with a Garmin watch can receive a workout via the CoachingMate platform. When they complete their workout, they are able to send the data from the watch to the Dashboard for viewing by themselves and their coach. In this project, our team mainly has two tasks: the frontend part and the backend part.
 
+The backend part synchronic the data from Garmin Connect, retrieving data reflecting the status of athlete daily life, built with Springboot framework. Our main task is responsible for fixing the old version bug, as well as integrating more features into existing code. Data collected in Garmin Connect is acquired through Garmin wearable. Data will be displayed on the frontend part.
 
+The frontend part is mainly about the development of the dashboard. We need to design better user interfaces based on human-computer interaction theory. Visualize the data collected by the backend and present them to the user.
 
 ## Project Status
 
 This project is currently in development.
+1. user is able to create an account, synchronizing the data retrieve from Garmin connect.
+2. user’s data saved in the MongoDB database in a standard way, which is convenient for future development.
+3. user can view all his activity data, under viewing of the list.
+4. completely fix the bug of the old version
+
+Future tasks:：
+1. create more api retrieving data for front end, including activity details, and echo data.
+2. delete redundant code
 
 ## Backend Flow
 
@@ -23,7 +33,6 @@ Web part
 
 ![image](https://user-images.githubusercontent.com/82303079/163653500-0cb0d473-de5f-4e4e-9987-455504e8e867.png)
 
-## How Backend deploy
 ## Installation and Setup Instructions
 
 ### 1. install JDK
