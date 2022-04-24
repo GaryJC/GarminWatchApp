@@ -1,3 +1,15 @@
+## Project Name & Pitch
+Team-GA-Redback
+
+This is Redback-backend for coach mate website, synchronic the data from Garmin Connect, retrieving data reflect the status of athlete daily life, built with Springboot framework. This is the Unimelb project for COMP90082 which is responsible for fixing the old version bug, as well as integrating more features on existing code. Data collected in Garmin Connect is acquired through Garmin wearable. Data will be displayed in the Redback-frontend
+
+## Project Status
+This project is currently in development.
+1. user is able to create an account, synchronizing the data retrieve from Garmin connect.
+2. user’s data save in the MongoDB database in a standard way, which is convenient for future development.
+3. user can view all his activity data, under viewing of the list.
+4. completely fix the bug of the old version
+
 ## Components diagram
 ![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/componentPicture/component%20Diagram.png)
 
