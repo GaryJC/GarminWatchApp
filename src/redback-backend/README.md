@@ -1,43 +1,3 @@
-## Project Name & Pitch 
-Coachmate
-
-An application used to connect the Garmin connect and retrieve activity data, built with Springboot framework.
-This is a unimelb project of subject COMP90082 which is responsible for acquiring and processing data.
- Data collected in Garmin Connect is acquired through Garmin wearable. devices used by athletes training under CoachingMate.
- 
- ## Table of Content
-
-- [Project Name & Pitch](#project-name---pitch)
-- [Index](#Index)
-- [Project Status](#project-status)
-- [Components diagram](#components-diagram)
-- [The project structure](#the-project-structure)
-- [Description of the database structure ](#Description-of-the-database-structure )
-- [Installation and Setup Instructions](#installation-and-setup-instructions)
-  * [1. install JDK](#1-install-jdk)
-  * [2. install maven](#2-install-maven)
-  * [3. install MongoDB](#3-install-mongodb)
-  * [4. install git environment](#4-install-git-environment)
-  * [5. Run this project locally](#5-run-this-project-locally)
-- [Deployment guidelines](#deployment-guidelines)
-  * [1. create a new application on heroku](#1-create-a-new-application-on-heroku)
-  * [2. text our app name and region](#2-text-our-app-name-and-region)
-  * [3. fork this repository to your own repository](#3-fork-this-repository-to-your-own-repository)
-  * [4. Select Github and find this forked project in your own repository](#4-select-github-and-find-this-forked-project-in-your-own-repository)
-  * [5. connect successfully](#5-connect-successfully)
-  * [6. find our app and click the Openapp button](#6-find-our-app-and-click-the-openapp-button)
-  * [7. find our URL in the build log](#7-find-our-url-in-the-build-log)
-- [Documents](#documents)
-- [Release History](#Release-History)
-
-
-
-## Project Status
-
-This project is currently in development. 
-1. Users can register an account and login to this system. 
-2. User can authorised this account to garmin connect so that garmin connect can transfer activity data to this backend.
-
 ## Components diagram
 ![image](https://github.com/chenyuguo/coachingmate/blob/master/Resources/componentPicture/component%20Diagram.png)
 
@@ -170,17 +130,5 @@ There are serveal steps we need to do to run our app on heroku
 URL: <https://coachingmate2020.herokuapp.com/>
 
 
-## Documents
-- [User Stories](https://github.com/chenyuguo/coachingmate/blob/master/docs/UserStories.pdf)
-- [Components Diagram](https://github.com/chenyuguo/coachingmate/blob/master/docs/Components%20Diagram.pdf)
-- [motivational model](https://github.com/chenyuguo/coachingmate/blob/master/docs/Motivational%20model.pdf)
-- [coachingmate-api](https://github.com/chenyuguo/coachingmate/blob/master/docs/coachingmate-api.pdf)
-- [Integrate MongoDB within SpringBoot](https://github.com/chenyuguo/coachingmate/blob/master/docs/Integrate%20MongoDB%20within%20SpringBoot.pdf)
-
-## Release History
-- 1.0.0 - Complete the basic setup of front and rear ends (user registration, user login, garmin Connect authorization, and Garmin Connect simulation terminal data)
-- 1.0.1 - fix bug: when username is right, password is not checked. and add log aspect.
-- 2.0.0 - Solve HTTPS problems requiring certificate
-- 3.0.0 - add api document annotations and integrate the parsing .fit data module. The Garmin Connect app can call push URL to push data to the back end，this is the final version
 
 
