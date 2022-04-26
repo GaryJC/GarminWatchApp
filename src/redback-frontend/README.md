@@ -30,9 +30,11 @@ This project is currently in development.
 
 ## Installation and Setup Instructions
 
-Clone down this repository. You will need some node modules installed globally on your machine.
+Clone down the project:
 
-`git clone https://github.com/agogear/Cm-frontend.git`
+`git clone https://github.com/COMP90082SM12022/GA-Redback.git`
+
+In the repository .../src/redback-frontend:
 
 Installation of the node dependencies:
 
