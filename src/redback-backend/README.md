@@ -172,7 +172,7 @@ To login App:
 
  
 ### Garmin app api: 
-#### 1. You need to create a new app in the developerportal of garmin.
+#### 1. You need to create a new app in the developer portal of garmin.
 https://developerportal.garmin.com/
  ![image](https://user-images.githubusercontent.com/39297807/164959564-9fec2399-93c9-4da5-94a6-650567b3544c.png)
 #### 2. Then you need to write down the consumerkey and consumerSececret
@@ -182,7 +182,7 @@ https://developerportal.garmin.com/
 
  
 ### Garmin app api portal:
-#### You need to upload your project to github, then connect the github repository with heuroku.
+#### You need to upload your project to github, then connect the github repository with heroku.
 #### 1. create a new application on heroku
 ![image](https://user-images.githubusercontent.com/39297807/164959624-0c1bc5a6-0187-4692-9065-a8385bd49d24.png)
 #### 2. text our app name and region
@@ -196,7 +196,7 @@ https://developerportal.garmin.com/
  ![image](https://user-images.githubusercontent.com/39297807/164959652-10a31d28-2b9b-4d7c-8866-232574dd7710.png)
 #### 7. find our URL in the build log
  ![image](https://user-images.githubusercontent.com/39297807/164959657-ffad70d1-88fb-4c98-83bd-a2f0fccb0a7a.png)
-#### Finally, replace the garmin developer url as the herokuapp + path
+#### Finally, replace the garmin developer url as the heroku app + path
 ![image](https://user-images.githubusercontent.com/39297807/164959664-14cd3a3c-4799-413a-a0c0-24d5430ae3ae.png)
 ![image](https://user-images.githubusercontent.com/39297807/164959668-c42c70c3-e849-4057-981f-31b6b92259f5.png)
 ![image](https://user-images.githubusercontent.com/39297807/164959671-716a3b04-a7f2-4452-b320-8d9ba93fdd44.png)
