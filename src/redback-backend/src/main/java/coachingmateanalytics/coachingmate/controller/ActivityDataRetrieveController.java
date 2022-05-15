@@ -4,7 +4,6 @@ import coachingmateanalytics.coachingmate.service.FrontEndService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.bson.Document;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.print.Doc;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -45,14 +43,32 @@ public class ActivityDataRetrieveController {
         return ResponseEntity.ok(activityByAccessToken);
     }
 
+    @GetMapping("/getActivityDetailsByAccessToken")
+    @ApiOperation(value = "retrieve Data By Username", notes = "query all activity data of specific user")
+    public ResponseEntity<List<Document>> retrieveActivityDetailsByAccessToken(@ApiParam(required = true, type = "String") @RequestParam("accessToken") String accessToken) {
+        List<Document> activityDetailsByAccessToken = frontEndService.findActivityDetailsByAccessToken(accessToken);
+        return ResponseEntity.ok(activityDetailsByAccessToken);
+    }
+
     @GetMapping("/getSwimmingActivityByAccessToken")
     @ApiOperation(value = "retrieve Data By Username", notes = "query all activity details data of specific user")
     public ResponseEntity<List<Document>> retrieveSwimByAccessToken(@ApiParam(required = true, type = "String") @RequestParam("accessToken") String accessToken) {
         List<Document> activityByAccessToken = frontEndService.findActivityByAccessToken(accessToken);
+        List<Document> activityDetailsByAccessToken = frontEndService.findActivityDetailsByAccessToken(accessToken);
+        for (Document act1 : activityByAccessToken){
+            ArrayList<Object> details = new ArrayList<>();
+            for (Document act2 : activityDetailsByAccessToken){
+                if (act1.get("activityId").equals(act2.get("activityId"))){
+                    details = (ArrayList<Object>) act2.get("samples");
+                }
+            }
+            act1.append("details",details);
+        }
         List<Document> returnList = new ArrayList<>();
         for (Document activity : activityByAccessToken){
             String activityName = activity.getString("activityName");
             if(activityName.equals("Swimming ")){
+                ArrayList<Object> details = (ArrayList<Object>) activity.get("details");
             	Document tmpDocument = new Document()
                         .append("activityType", "Swimming")
                         .append("activityId", 0)
@@ -60,7 +76,8 @@ public class ActivityDataRetrieveController {
             			.append("distance", 0)
             			.append("avgSpeed", 0.0)
                         .append("calories", 0)
-                        .append("pace", 0.0);
+                        .append("pace", 0.0)
+                        .append("details", details);
                 tmpDocument.replace("activityId",activity.get("activityId"));
             	tmpDocument.replace("time",activity.getInteger("durationInSeconds"));
                 tmpDocument.replace("distance",activity.getInteger("distanceInMeters"));
@@ -78,10 +95,21 @@ public class ActivityDataRetrieveController {
     @ApiOperation(value = "retrieve Data By Username", notes = "query all activity details data of specific user")
     public ResponseEntity<List<Document>> retrieveBikeByAccessToken(@ApiParam(required = true, type = "String") @RequestParam("accessToken") String accessToken) {
         List<Document> activityByAccessToken = frontEndService.findActivityByAccessToken(accessToken);
+        List<Document> activityDetailsByAccessToken = frontEndService.findActivityDetailsByAccessToken(accessToken);
+        for (Document act1 : activityByAccessToken){
+            ArrayList<Object> details = new ArrayList<>();
+            for (Document act2 : activityDetailsByAccessToken){
+                if (act1.get("activityId").equals(act2.get("activityId"))){
+                    details = (ArrayList<Object>) act2.get("samples");
+                }
+            }
+            act1.append("details",details);
+        }
         List<Document> returnList = new ArrayList<>();
         for (Document activity : activityByAccessToken){
             String activityType = activity.getString("activityType");
             if(activityType.equals("CYCLING")){
+                ArrayList<Object> details = (ArrayList<Object>) activity.get("details");
                 Document tmpDocument = new Document()
                         .append("activityType", "Cycling")
                         .append("activityId", 0)
@@ -90,7 +118,8 @@ public class ActivityDataRetrieveController {
                         .append("avgSpeed", 0.0)
                         .append("calories", 0)
                         .append("pace", 0.0)
-                        .append("heartRate", 0);
+                        .append("heartRate", 0)
+                        .append("details", details);
                 tmpDocument.replace("activityId",activity.get("activityId"));
                 tmpDocument.replace("time",activity.getInteger("durationInSeconds"));
                 tmpDocument.replace("distance",activity.getInteger("distanceInMeters"));
@@ -108,10 +137,21 @@ public class ActivityDataRetrieveController {
     @ApiOperation(value = "retrieve Data By Username", notes = "query all activity details data of specific user")
     public ResponseEntity<List<Document>> retrieveRunByAccessToken(@ApiParam(required = true, type = "String") @RequestParam("accessToken") String accessToken) {
         List<Document> activityByAccessToken = frontEndService.findActivityByAccessToken(accessToken);
+        List<Document> activityDetailsByAccessToken = frontEndService.findActivityDetailsByAccessToken(accessToken);
+        for (Document act1 : activityByAccessToken){
+            ArrayList<Object> details = new ArrayList<>();
+            for (Document act2 : activityDetailsByAccessToken){
+                if (act1.get("activityId").equals(act2.get("activityId"))){
+                    details = (ArrayList<Object>) act2.get("samples");
+                }
+            }
+            act1.append("details",details);
+        }
         List<Document> returnList = new ArrayList<>();
         for (Document activity : activityByAccessToken){
             String activityName = activity.getString("activityName");
             if(activityName.equals("Running")){
+                ArrayList<Object> details = (ArrayList<Object>) activity.get("details");
                 Document tmpDocument = new Document()
                         .append("activityType", "Running")
                         .append("activityId", 0)
@@ -121,7 +161,8 @@ public class ActivityDataRetrieveController {
                         .append("calories", 0)
                         .append("pace", 0.0)
                         .append("avgCadence", 0)
-                        .append("heartRate", 0);
+                        .append("heartRate", 0)
+                        .append("details", details);
                 tmpDocument.replace("activityId",activity.get("activityId"));
                 tmpDocument.replace("time",activity.getInteger("durationInSeconds"));
                 try {
@@ -184,6 +225,7 @@ public class ActivityDataRetrieveController {
                 .append("date", strDate)
                 .append("calories", 0)
                 .append("distance", 0.0);
+
         return dateUnit;
     }
 
