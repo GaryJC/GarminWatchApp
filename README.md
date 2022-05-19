@@ -14,11 +14,7 @@ This project is currently in development.
 2. user’s data saved in the MongoDB database in a standard way, which is convenient for future development.
 3. user can view all his activity data, under viewing of the list.
 4. completely fix the bug of the old version
-
-Future tasks:
-1. visualize the data collected by the backend.
-2. create more api retrieving data for front end, including activity details, and echo data.
-3. delete redundant code
+5. data collected by the backend has been visualised.
 
 ## Backend:
 ## Backend Project structure
