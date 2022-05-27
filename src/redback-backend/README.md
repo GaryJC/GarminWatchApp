@@ -23,7 +23,7 @@ Web part
 
 ### Components diagram:
 
-![image](https://user-images.githubusercontent.com/39297807/164958763-2b45cae0-48d6-46a3-aca5-5c40e5279cfc.png)
+<img width="545" alt="Screen Shot 2022-04-26 at 14 44 56" src="https://user-images.githubusercontent.com/39297807/170637351-246450ea-a90f-42a9-b0df-415c83ef31c7.png">
 
 ### Spring structure:
 
