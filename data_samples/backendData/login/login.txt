@@ -1,4 +1,2 @@
-username:
-Redback007
-password:
-Qi Li7
+username: Redback007
+password: Qi Li7
