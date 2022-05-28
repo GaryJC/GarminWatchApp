@@ -40,7 +40,7 @@ const ApiTest = ({user}) => {
     }
     return (
         <>
-            <div>Base URL: lk-redback2.herokuapp.com</div>
+            <div>Base URL: http://lk-redback2.herokuapp.com</div>
             <span>API URL: </span><input onChange={changeURL} value={testURL}/>
             <Button type={'primary'} onClick={handleTest} shape={'round'}>Test</Button>
             <div>Test Result: {JSON.stringify(testResult)}</div>

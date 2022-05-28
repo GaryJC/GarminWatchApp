@@ -38,25 +38,25 @@ const DetailsModal = ({detailsData: {details}}) => {
             theme: "fusion"
         },
 
-        data: [
-            {
-                label: "1",
-                value: "138"
-            },
-            {
-                label: "2",
-                value: "145"
-            },
-            {
-                label: "3",
-                value: "111"
-            },
-            {
-                label: "4",
-                value: "91"
-            },
-        ]
-        // data: heartRateData
+        // data: [
+        //     {
+        //         label: "1",
+        //         value: "138"
+        //     },
+        //     {
+        //         label: "2",
+        //         value: "145"
+        //     },
+        //     {
+        //         label: "3",
+        //         value: "111"
+        //     },
+        //     {
+        //         label: "4",
+        //         value: "91"
+        //     },
+        // ]
+        data: heartRateData
     };
 
     const speedDataSource = {
@@ -71,25 +71,25 @@ const DetailsModal = ({detailsData: {details}}) => {
             theme: "fusion"
         },
 
-        data: [
-            {
-                label: "1",
-                value: "1"
-            },
-            {
-                label: "2",
-                value: "2"
-            },
-            {
-                label: "3",
-                value: "1"
-            },
-            {
-                label: "4",
-                value: "2"
-            },
-        ]
-        // data: speedData
+        // data: [
+        //     {
+        //         label: "1",
+        //         value: "1"
+        //     },
+        //     {
+        //         label: "2",
+        //         value: "2"
+        //     },
+        //     {
+        //         label: "3",
+        //         value: "1"
+        //     },
+        //     {
+        //         label: "4",
+        //         value: "2"
+        //     },
+        // ]
+        data: speedData
     };
 
     return (
