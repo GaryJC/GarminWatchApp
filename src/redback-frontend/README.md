@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## EditorConfig
+ 
+If you want to change the backend host or the backend host is no longer available, you have to change the URL in the `.env` EditorConfig file. 
+
 ## Available Scripts
 
 In the project directory, you can run:
