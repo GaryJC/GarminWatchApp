@@ -151,6 +151,7 @@ To login App:
  
 ## Deployment guidelines
 #### There are three places’s variable should be replaced by yours
+#### Be careful, the heuroko free trial is limited to 500 hours, you can deploy to another groupmate account!!!
 * MongoDB
 * Garmin app api
 * Garmin app api portal
