@@ -159,7 +159,6 @@ To login App:
  
 ## Deployment guidelines
 #### There are three places’s variable should be replaced by yours
-#### Be careful, the heuroko free trial is limited to 500 hours, you can deploy to another groupmate account!!!
 * MongoDB
 * Garmin app api
 * Garmin app api portal
@@ -218,6 +217,10 @@ https://developerportal.garmin.com/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
+## EditorConfig
+ 
+If you want to change the backend host or the backend host is no longer available, you have to change the URL in the `.env` EditorConfig file. 
 
 ## Available Scripts
 
