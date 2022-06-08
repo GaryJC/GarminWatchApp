@@ -191,6 +191,7 @@ https://developerportal.garmin.com/
  
 ### Garmin app api portal:
 #### You need to upload your project to github, then connect the github repository with heroku.
+(Be careful, the Heroku free trial is limited to 500 hours, you can deploy to another groupmate account!!!)
 #### 1. create a new application on heroku
 ![image](https://user-images.githubusercontent.com/39297807/164959624-0c1bc5a6-0187-4692-9065-a8385bd49d24.png)
 #### 2. text our app name and region
