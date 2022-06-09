@@ -121,7 +121,7 @@ user.email=343672271@qq.com
 ### 5. Run this project locally
 Clone down this repository. You will need `maven` and `JDK1.8` installed globally on your machine.  
 
-`git clone https://github.com/agogear/coaching-mate.git`
+`git clone https://github.com/COMP90082SM12022/GA-Redback`
 
 Modify configuration file:
 [application-dev.properties](https://github.com/agogear/coaching-mate/blob/master/src/main/resources/application-dev.properties)
